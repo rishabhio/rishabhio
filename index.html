@@ -6,15 +6,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Machine Learning is a technique of making machines to learn without being explicitly programmed. ">
+    <meta name="description" content=" rishabh.io is a knowledge base of technology and how to use it. 
+		An aggregation of different technologies in use today.
+	    An answer to why should I learn to program. 
+		An answer to how to start programming.
+		A solution to complex technology problems which can be solved using programming and computing.
+		We also do talk about Internet of Things at times. 
+		Inoeve || Internet of Everything
+	">
     <meta name="author" content="rishabhio">
 
     <title>rishabh.io - Exploring Machine Learning</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
-
     <!-- Custom Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" type="text/css">
@@ -23,6 +31,163 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/rishabhio.css" type="text/css">
+	
+	
+	 <style>
+    body {
+      -webkit-font-smoothing: antialiased;
+      font: normal 15px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #232525;
+      padding-top:03px;
+    }
+
+    #slides {
+      display: none
+    }
+
+    #slides .slidesjs-navigation {
+      margin-top:5px;
+    }
+
+    a.slidesjs-next,
+    a.slidesjs-previous,
+    a.slidesjs-play,
+    a.slidesjs-stop {
+      background-image: url(img/btns-next-prev.png);
+      background-repeat: no-repeat;
+      display:block;
+      width:12px;
+      height:18px;
+      overflow: hidden;
+      text-indent: -9999px;
+      float: left;
+      margin-right:5px;
+    }
+
+    a.slidesjs-next {
+      margin-right:10px;
+      background-position: -12px 0;
+    }
+
+    a:hover.slidesjs-next {
+      background-position: -12px -18px;
+    }
+
+    a.slidesjs-previous {
+      background-position: 0 0;
+    }
+
+    a:hover.slidesjs-previous {
+      background-position: 0 -18px;
+    }
+
+    a.slidesjs-play {
+      width:15px;
+      background-position: -25px 0;
+    }
+
+    a:hover.slidesjs-play {
+      background-position: -25px -18px;
+    }
+
+    a.slidesjs-stop {
+      width:18px;
+      background-position: -41px 0;
+    }
+
+    a:hover.slidesjs-stop {
+      background-position: -41px -18px;
+    }
+
+    .slidesjs-pagination {
+      margin: 7px 0 0;
+      float: right;
+      list-style: none;
+    }
+
+    .slidesjs-pagination li {
+      float: left;
+      margin: 0 1px;
+    }
+
+    .slidesjs-pagination li a {
+      display: block;
+      width: 13px;
+      height: 0;
+      padding-top: 13px;
+      background-image: url(img/pagination.png);
+      background-position: 0 0;
+      float: left;
+      overflow: hidden;
+    }
+
+    .slidesjs-pagination li a.active,
+    .slidesjs-pagination li a:hover.active {
+      background-position: 0 -13px
+    }
+
+    .slidesjs-pagination li a:hover {
+      background-position: 0 -26px
+    }
+
+    #slides a:link,
+    #slides a:visited {
+      color: #333
+    }
+
+    #slides a:hover,
+    #slides a:active {
+      color: #9e2020
+    }
+
+    .navbar {
+      overflow: hidden
+    }
+  </style>
+  <!-- End SlidesJS Optional-->
+
+  <!-- SlidesJS Required: These styles are required if you'd like a responsive slideshow -->
+  <style>
+    #slides {
+      display: none
+    }
+
+    .container {
+      margin: 0 auto
+    }
+
+    /* For tablets & smart phones */
+    @media (max-width: 767px) {
+      body {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .container {
+        width: auto
+      }
+    }
+
+    /* For smartphones */
+    @media (max-width: 480px) {
+      .container {
+        width: auto
+      }
+    }
+
+    /* For smaller displays like laptops */
+    @media (min-width: 768px) and (max-width: 979px) {
+      .container {
+        width: 724px
+      }
+    }
+
+    /* For larger displays */
+    @media (min-width: 1200px) {
+      .container {
+        width: 1170px
+      }
+    }
+  </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,19 +195,87 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	<script src="assets/js/jquery.js"></script>
+  <script src="assets/js/jquery.slides.min.js"></script>
+  
+ <script>
+    $(function() {
+      $('#slides').slidesjs({
+        width: 940,
+        height: 528,
+        play: {
+          active: true,
+          auto: true,
+          interval: 4000,
+          swap: true
+        }
+      });
+    });
+  </script>
 
 </head>
 
 <body>
 
 
+
+	<ul class="nav nav-pills nav-justified rishabhio-pills">
+    <li role="presentation" class="active"><a href="#">Home</a></li>
+  <li role="presentation"><a href="#">Profile</a></li>
+   <li role="presentation"><a href="#">Work </a></li>
+</ul>
+
+
 <div class="container">
-	<h1> What is Machine Learning? </h1>
+<h1> What is Machine Learning? </h1>
 	<p> Machine learning is a subfield of computer science that evolved from the study of pattern recognition and computational learning theory in artificial intelligence. In 1959, Arthur Samuel defined machine learning as a "Field of study that gives computers the ability to learn without being explicitly programmed".  --wikipedia
  </p>
-	
 </div>
 
+<div class="container">
+	
+ 
+	 <div id="slides">
+    <img src="assets/img/001.png">
+	  <img src="assets/img/002.png">
+	    <img src="assets/img/003.png">
+		  <img src="assets/img/004.png">
+		    <img src="assets/img/005.png">
+			  <img src="assets/img/006.png">
+			    <img src="assets/img/007.png">
+				  <img src="assets/img/008.png">
+				    <img src="assets/img/009.png">
+					  <img src="assets/img/010.png">
+					    <img src="assets/img/011.png">
+						  <img src="assets/img/012.png">
+						    <img src="assets/img/013.png">
+							  <img src="assets/img/014.png">
+							    <img src="assets/img/015.png">
+								  <img src="assets/img/016.png">
+    
+  </div>
+ </div>
+ 
+ 
+ 
+ <ul class="pager">
+    <li><a href="#">Previous</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+	
+
+<div >
+<ul style="float : right; background: #222;">
+	<a target="_blank" style=" color: #2f2;" href="https://github.com/rishabhio" > <span class="fa fa-github" data-toggle="tooltip" data-placement="top" title="rishabhio on github"> </span> </a>
+	<a href="#"> | </a>
+	<a target="_blank" href="https://twitter.com/@rishabhgarian"> <span class="fa fa-twitter" data-toggle="tooltip" data-placement="top" title="rishabhio on twitter"> </span> </a>
+	<a href="#"> | </a>
+	<a target="_blank" href="https://www.quora.com/profile/Rishabh-Sharma-113"> <span class="fa fa-question" data-toggle="tooltip" data-placement="top" title="rishabhio on quora"> </span> </a>
+	<a href="#"> | </a>
+	<a style=" color: #f22;" target="_blank" href="https://plus.google.com/u/0/+RishabhSharmaIOT/posts"> <span class="fa fa-google-plus" data-toggle="tooltip" data-placement="top" title="rishabhio on google plus"> </span> </a>
+</ul>
+</div>
 
  
     
