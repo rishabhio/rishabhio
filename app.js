@@ -15,7 +15,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
         .state('about', {
             // we'll get to this in a bit       
-        });
+        })
 		
 		    // nested list with custom controller
     .state('home.list', {
