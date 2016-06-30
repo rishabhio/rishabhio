@@ -46,8 +46,11 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
     });
 
 
-});     
-		routerApp.controller('scotchController', function($scope) {
+}); 
+
+
+    
+routerApp.controller('scotchController', function($scope) {
     
     $scope.message = 'test';
    
