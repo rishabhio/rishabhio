@@ -45,7 +45,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         
     });
 
-}); // closes $routerApp.config()
+
         
 		routerApp.controller('scotchController', function($scope) {
     
