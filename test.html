@@ -3,45 +3,85 @@
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
 		<script src="assets/js/jquery.js"></script>
 		<script src="assets/js/angular.min.js"></script>
-	</head>
-    <body>
-        <script src="http://cdn.pubnub.com/pubnub-3.15.2.min.js"></script>
-    <script>
-function publish() {
- 
-    pubnub = PUBNUB({
-        publish_key : 'demo',
-        subscribe_key : 'demo'
-    })
-     
-    console.log("Subscribing..");
-    pubnub.subscribe({                                     
-        channel : "hello_world",
-        message : function (message, envelope, channelOrGroup, time, channel) {
-            console.log(
-                "Message Received." + "\n" +
-                "Channel or Group : " + JSON.stringify(channelOrGroup) + "\n" +
-                "Channel : " + JSON.stringify(channel) + "\n" +
-                "Message : " + JSON.stringify(message) + "\n" +
-                "Time : " + time + "\n" +
-                "Raw Envelope : " + JSON.stringify(envelope)
-            )
-        },
-        connect : pub
-    })
- 
-    function pub() {
-        console.log("Since we're publishing on subscribe connectEvent, we're sure we'll receive the following publish.");
-        pubnub.publish({
-            channel : "hello_world",
-            message : "Hello from PubNub Docs!",
-            callback : function(m){
-                console.log(m)
+		
+		
+		<script src="https://cdn.pubnub.com/pubnub-3.7.21.js"></script>
+<script src="https://cdn.pubnub.com/sdk/pubnub-angular/pubnub-angular-3.2.1.js"></script>
+<script>    
+	angular.module('app', ["pubnub.angular.service"])
+ .controller('ChatCtrl', function($scope, Pubnub) {        
+   $scope.channel = 'my_channel';
+   // Generating a random uuid between 1 and 100 using an utility function from the lodash library.         
+   $scope.uuid = _.random(100).toString();
+   Pubnub.init({
+         publish_key: 'demo',
+         subscribe_key: 'demo',
+         uuid: $scope.uuid
+       });
+	    // Send the messages over PubNub Network
+    $scope.sendMessage = function() {
+       // Don't send an empty message 
+       if (!$scope.messageContent || $scope.messageContent === '') {
+            return;
+        }
+        Pubnub.publish({
+            channel: $scope.channel,
+            message: {
+                content: $scope.messageContent,
+                sender_uuid: $scope.uuid,
+                date: new Date()
+            },
+            callback: function(m) {
+                console.log(m);
             }
-        })
+        });
+        // Reset the messageContent input
+        $scope.messageContent = '';
+
     }
+	
+	$scope.messages = [];
+
+// Subscribing to the ‘messages-channel’ and trigering the message callback
+Pubnub.subscribe({
+    channel: $scope.channel,
+    triggerEvents: ['callback']
+});
+
+// Listening to the callbacks
+$scope.$on(Pubnub.getMessageEventNameFor($scope.channel), function (ngEvent, m) {
+    $scope.$apply(function () {
+        $scope.messages.push(m)
+    });
+});
+
+// A function to display a nice uniq robot avatar 
+$scope.avatarUrl = function(uuid){
+    return 'http://robohash.org/'+uuid+'?set=set2&bgset=bg2&size=70x70';
 };
+ });
 </script>
-<h1> Hello World </h1>
+	</head>
+    
+       
+
+<body ng-app="app">
+  
+<div ng-controller="ChatCtrl">
+     <form ng-submit="sendMessage()">
+       <input ng-model="messageContent" type="text" placeholder="Type your message" />
+       <button type="submit">Send</button>
+      </form>
+</div>
+
+<ul>
+     <li ng-repeat="message in messages">
+       <img src="{{avatarUrl(message.sender_uuid)}}" alt="{{message.sender_uuid}}">
+       <span class="title">Anonymous robot #{{ message.sender_uuid }}</span>
+       <p>{{ message.date | date:"MM/dd/yyyy 'at' h:mma"}}</br> {{ message.content }}</p>
+     </li>
+</ul> 
+
+
     </body>
 </html>
