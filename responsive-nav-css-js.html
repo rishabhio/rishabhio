@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+
+body {
+	margin: 0px;
+}
+@media only screen and (max-width: 800px) {
+    body {
+        background: #456892;
+    }
+}
+
+
+ul {
+	list-style-type: none;
+	width: 100%;
+	background: #7f3a18;
+	padding: 0px 0px;
+	overflow: hidden;
+	margin: 0;
+}
+li {
+	float: left;
+	text-align: center;
+}
+li a{
+ display: block;
+    color: white;
+    text-align: center;
+    padding: 34px 30px;
+    text-decoration: none;
+	font-size: 24px;
+
+}
+li a:hover {
+	color: #7f3a18;
+	background: #ce933c;
+}
+li.icon {
+	display: none;
+}
+/* add media queries */
+@media screen and (max-width: 900px) {
+	li:not(:first-child) {
+		display: none;
+	}
+	li.icon {
+		float: right;
+		display: inline-block;
+	}
+}
+
+@media screen and (max-width: 900px){
+	ul.responsive {
+		position: relative;
+	}
+	ul.responsive li.icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	ul.responsive li {
+		float: none;
+		display: inline;
+	}
+	ul.responsive li a {
+		display: block;
+		text-align: left;
+	}
+}
+ 
+</style>
+<script>
+function respond() {
+    var x = document.getElementById("resNav");
+    if (x.className === "res-nav") {
+        x.className += " responsive";
+    } else {
+        x.className = "res-nav";
+    }
+}
+</script>
+</head>
+<body>
+		<ul class="res-nav" id="resNav">
+			<li>	
+				<a href="#"> Home </a>
+			</li>
+			<li>	
+				<a href="#"> Tools </a>
+			</li>
+			<li>	
+				<a href="#"> Workshops </a>
+			</li>
+			<li>	
+				<a href="#"> Technologies </a>
+			</li>
+			<li>	
+				<a href="#"> Pricing </a>
+			</li>
+			<li style="float: right; background: #ce933c">	
+				<a href="#"> Contact Us </a>
+			</li>
+			<li class="icon">
+				<a href="#" onclick="respond()">&#9776; </a> 
+			</li>
+		</ul>
+</body>
+</html>
